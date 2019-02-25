@@ -1,0 +1,97 @@
+<!-- создание формы для отправки на сервер данных -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="jquery-3.2.1.min.js"></script>
+
+</head>
+
+<body>
+<h1>Form for search</h1>
+	<form action="#" method="POST" id="form">
+		<div id="divForForms">
+			<div class="formForGit">
+				<div>
+					<select name="fieldFirst" class="custom-select">
+						<option disabled selected>Field</option>
+						<option>size</option>
+						<option>forks</option>
+						<option>stars</option>
+						<option>followers</option>
+					</select>
+				</div>
+				<div>
+					<select name="fieldSecond" class="custom-select">
+						<option disabled selected>Operator</option>
+						<option>></option>
+						<option><</option>
+						<option>=</option>
+					</select>
+				</div>
+				<div>
+					<input type="number" name="qwantity" placeholder="Value.." class="form-control" >
+				</div>
+				<div>
+					<input type="button" class="dlt" value="Delete form">
+				</div>
+			</div>
+		</div>
+		<div id="buttonBox">
+			<button type="submit" id="apl" class="btn btn-outline-primary">Apply</button>
+			<button type="reset" id="clr" class="btn btn-outline-primary">Clear</button>
+			<button type="button" id="add" class="btn btn-outline-primary">Add Rule</button>
+		</div>
+	</form>
+
+
+
+	<script>
+			$("#add").on("click", function () {
+				$("<div>").addClass("formForGit").html(
+					`<div>
+						<select name="fieldFirst" class="custom-select">
+							<option disabled selected>Field</option>
+							<option>size</option>
+							<option>forks</option>
+							<option>stars</option>
+							<option>followers</option>
+						</select>
+					</div>
+					<div>
+						<select name="fieldSecond" class="custom-select">
+							<option disabled selected>Operator</option>
+							<option>></option>
+							<option><</option>
+							<option>=</option>
+						</select>
+					</div>
+					<div>
+						<input type="number" name="qwantity" placeholder="Value.." class="form-control" >
+					</div>
+					<div>
+						<input type="button" class="dlt" value="Delete form">
+					</div>`
+				).appendTo("#divForForms")
+			});
+			$("#divForForms").on("click", function (e) {
+				if ($(e.target).is("input.dlt")){
+					$(e.target).parent().parent().remove();
+			}});
+		// отправляем на сервер данные с формы JSON
+		$("#form").on("submit", function () {
+			formData = $(this).serializeArray();
+			console.log(formData);
+			formData = JSON.stringify(formData);
+			alert(formData);
+		});
+	</script>
+</body>
+
+</html>

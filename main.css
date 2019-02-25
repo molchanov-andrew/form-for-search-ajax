@@ -1,0 +1,26 @@
+
+#buttonBox{
+	display: inline-block;
+	border-top: 2px solid darkgray;
+	width: 100%;
+	padding: 30px;
+}
+.formForGit{
+	padding: 15px;
+	border-bottom: 2px solid darkgray;
+}
+.formForGit>div{
+	margin-bottom: 10px;
+}
+h1{
+	padding: 10px 0 0 15px;
+}
+button #apl{
+	color: red;
+}
+#clr{
+	color: orange;
+}
+#add{
+	color: green;
+} 
